@@ -1,0 +1,123 @@
+INTRODUÇÃO E CONSTRUÇÃO DE ALGORITMOS
+
+- Algoritmo é uma sequência de passos lógicos e organizados usada para resolver um problema ou realizar uma tarefa.
+
+- Algoritmo é dinâmico.
+- No algoritmo pode haver uma estrutura condicional (condição)
+- SE / SENÃO
+
+1ª Atividade Entregue.
+
+----------------------------------------------------------------
+CONTEÚDO :
+
+- 04 HORAS DE ALGORITMOS ( WORKSHOP ONLINE )
+- 200 HORAS DE DESENVOLVIMENTO DE SISTEMAS
+- 240 HORAS DE DESENVOLVIMENTO WEB
+
+----------------------------------------------------------------
+CONTEÚDOS COMPLEMENTARES :
+
+- WORKSHOP DE DIVERSIDADE E INCLUSÃO
+- WORKSHOP DE LINKEDIN
+- WORKSHOP DE SEGURANÇA DA INFORMAÇÃO
+
+- TALKS MENSAIS COM PATROCINADORES
+
+----------------------------------------------------------------
+LINGUAGENS DE PROGRAMAÇÃO : existentes e aplicabilidade
+
+O COMPUTADOR É CRIADO PARA SE RELACIONAR CONOSCO.
+
+É UMA MAQUINA BINÁRIA (ENTENDE APENAS OS CONCEITOS DE 0 E 1)
+
+O COMPUTADOR É UMA PLACA ELETRONICA COM ENERGIAS CONDUZIDAS DE ACORDO COM : 0 E 1 ( FECHADO E ABERTO )
+
+AS LINGUAGENS DE PROGRAMAÇÃO VÃO ME AJUDAR A ME COMUNICAR COM O COMPUTADOR ESCREVENDO OS NOSSOS ALGORITMOS.
+
+EXISTEM ALGUNS CONCEITOS DE LINGAGEM DE PROGRAMAÇÃO:
+ALTO NÍVEL OU BAIXO NÍVEL.
+
+QUANTO MAIOR A PROXIMIDADE DE UMA LINGUAGEM DE PROGRAMAÇÃO A LINGUAGEM HUMANA, MAIS DE ALTO NÍVEL ELA É.
+
+QUANTO MENOS ELA FOR COMPREENSÍVEL PELO SER HUMANO, MAIS DE BAIXO NÍVEL ELA É.
+
+PORÉM ISSO NÃO DETERMINA SE A LINGUAGEM É MELHOR OU PIOR, CADA UMA TEM SUAS CARACTERISTICAS E UTILIDADES.
+
+----------------------------------------------------------------
+LINGUAGEM C#
+
+ESTRUTURA:
+
+namespace HelloWorldApp {
+  class Geeks {
+   static void Main(string[] args) {
+    Console.WriteLine("Hello World!")
+   }
+  }
+}
+
+----------------------------------------------------------------
+LINGUAGEM JAVA 
+
+ESTRUTURA :
+
+public class HelloWorld {
+ public static void main(String[] args) {
+  System.out.printin("Hello World")
+  }
+ }
+
+----------------------------------------------------------------
+LINGUAGEM PYTHON 
+
+ESTRUTURA :
+
+>> print("Hello, World!")
+
+----------------------------------------------------------------
+
+OBS:
+
+JAVA - CONCEITO ORIENTADO A OBJETO (SISTEMAIS MAIS ROBUSTOS, MAIS ABSTRAÇÃO, MAIOR RASTREABILIDADE)
+JS - ORIENTADA A SCRIPT ( INTERPRETADA PELO NAVEGADOR )
+HTML - LINGUAGEM DE MARCAÇÃO, ESTRUTURAÇÃO DE TEXTO
+CSS - LINGUAGEM DE ESTILIZAÇÃO.
+NODE.JS (BIBLIOTECA JS PARA DESENVOLVIMENTO BACK-END)
+PYTHON ( LINGUAGEM ESTRUTURADA, INTERPRETADA )
+
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
