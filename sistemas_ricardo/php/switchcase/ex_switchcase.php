@@ -26,7 +26,7 @@ switch ($opcao){
     case 4:
         echo " 4 = Divisão";
         $resp = $n1 / $n2;
-        break
+        break;
 }
 
 ?>
