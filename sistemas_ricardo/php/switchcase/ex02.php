@@ -13,14 +13,14 @@ if ($combustivel != "g" && $combustivel != "e" && $combustivel != "d"){
 else
     switch ($combustivel){
 
-    case "g":
-        echo "G = GASOLINA.";
-        break;
-    case "e":
-        echo "E = ETANOL.";
-        break;
-    case "d":
-        echo "D = DIESEL.";
-        break;
+        case "g":
+            echo "G = GASOLINA.";
+            break;
+        case "e":
+            echo "E = ETANOL.";
+            break;
+        case "d":
+            echo "D = DIESEL.";
+            break;
 }
 ?>
