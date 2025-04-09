@@ -1,6 +1,6 @@
 <?php
 
-// Exercício 12 : Peça uma letra e informe se é vogal ou consoante, usando switch-case.
+// Exercício 02 : Peça uma letra e informe se é vogal ou consoante, usando switch-case.
 
 $letra = strtolower(readline("Digite uma letra: "));
 $letra = trim($letra);

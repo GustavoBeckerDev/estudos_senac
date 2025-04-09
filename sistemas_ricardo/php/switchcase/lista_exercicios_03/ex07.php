@@ -1,6 +1,6 @@
 <?php
 
-// Exercício 17 : Peça as notas de Matemática e Português. O aluno só é aprovado se tiver nota ≥7 nas duas disciplinas.
+// Exercício 07 : Peça as notas de Matemática e Português. O aluno só é aprovado se tiver nota ≥7 nas duas disciplinas.
 
 $notaM = readline("Nota na disciplina Matemática: ");
 $notaP = readline("Nota na disciplina Português: ");
@@ -27,5 +27,6 @@ if (is_numeric($notaM) && is_numeric($notaP)) {
 else {
     echo "Dígito(s) incorreto(s). \n";
 }
+
 
 ?>

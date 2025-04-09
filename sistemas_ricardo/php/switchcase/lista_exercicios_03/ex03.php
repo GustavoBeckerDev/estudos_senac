@@ -1,6 +1,6 @@
 <?php
 
-// Exercício 13 : Peça dois números e diga se são iguais, diferentes ou se um é múltiplo do outro.
+// Exercício 03 : Peça dois números e diga se são iguais, diferentes ou se um é múltiplo do outro.
 
 $n1 = readline("Digite o 1º número: ");
 $n2 = readline("Digite o 2° número: ");

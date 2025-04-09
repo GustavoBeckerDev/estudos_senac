@@ -1,6 +1,6 @@
 <?php
 
-// Exercício 15 : Se o pagamento for à vista, aplique 10% de desconto; se for no cartão, 5%; se for parcelado, não aplique desconto.
+// Exercício 05 : Se o pagamento for à vista, aplique 10% de desconto; se for no cartão, 5%; se for parcelado, não aplique desconto.
 
 echo "Formas de pagamento. \n";
 echo "1 = À vista, 2 = Cartão, 3 = Cartão parcelado. \n";

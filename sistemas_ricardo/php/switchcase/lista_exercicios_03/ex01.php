@@ -1,6 +1,6 @@
 <?php
 
-// Exercício 11 : Receba um número e informe se ele é múltiplo de 3 e 5 ao mesmo tempo.
+// Exercício 01 : Receba um número e informe se ele é múltiplo de 3 e 5 ao mesmo tempo.
 
 $n = readline("Digite um número: ");
 

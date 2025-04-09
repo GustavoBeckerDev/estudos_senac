@@ -1,6 +1,6 @@
 <?php
 
-// Peça um CPF e verifique se tem 11 dígitos (ignorando pontos e traços).
+// Exercício 04 : Peça um CPF e verifique se tem 11 dígitos (ignorando pontos e traços).
 
 $cpf = readline("Digite seu CPF: ");
 
