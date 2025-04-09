@@ -3,17 +3,15 @@
 // Exercício 18 : Peça a idade e o tempo de contribuição e informe se a pessoa pode se aposentar.
 
 $sexo = trim(strtoupper(readline("Qual o seu sexo: [M/F]")));
-$idadestr = intval(trim(readline("Digite sua idade: ")));
-$contribuicaostr = intval(trim(readline("Quanto tempo de contribuição (anos): ")));
+$idadestr = trim(readline("Digite sua idade: "));
+$contribuicaostr = trim(readline("Quanto tempo de contribuição (anos): "));
 
 if (!ctype_digit($idadestr) || !ctype_digit($contribuicaostr)){
     echo "Dígitos inválidos, digite apenas números positivos. \n";    
     exit;
 }
-
 $idade = intval($idadestr);
 $contribuicao = intval($contribuicaostr);
-
 
 if (!ctype_alpha($sexo)){
     echo "Dígitos inválidos, digite apenas letras [M ou F] para o sexo. \n";
