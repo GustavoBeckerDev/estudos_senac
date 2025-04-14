@@ -18,5 +18,11 @@ where f.id_setor = s.id and s.nome = 'ti';
 
 select f.nome, d.nome, s.nome
 from funcionarios f, departamentos d, setores s
-where f.id_depart = d.id and s.nome <> 'marketing';
-group by 
+where f.id_depart = d.id and f.id_setor = s.id and s.nome <> 'marketing'
+group by f.nome;
+
+-- d) Mostre nome e departamento dos funcionários cujos nomes começem com 'p':
+
+select f.nome, d.nome
+from funcionarios f, departamentos d
+where f.id_depart = d.id and f.nome  like 'p%';
