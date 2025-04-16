@@ -12,7 +12,9 @@ $i = 0;
 
 do {
     $notas = $n + $notas;
+    if ($i > 0){
     $i++;
+    };
     $n = readline("Digite sua nota: ");
 }
 while ($n >= 0);
