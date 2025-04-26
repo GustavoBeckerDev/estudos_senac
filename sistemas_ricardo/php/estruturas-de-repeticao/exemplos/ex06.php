@@ -1,6 +1,6 @@
 <?php
 
-// Cire um programa que faça uma perunta ao usuário.
+// Crie um programa que faça uma pergunta ao usuário.
 // O programa deve continuar pedindo a resposta até que o usuário responde corretamente.
 
 echo "Qual é o maior time do Brasil ? \n";
