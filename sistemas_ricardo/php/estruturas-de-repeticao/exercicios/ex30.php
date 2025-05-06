@@ -12,7 +12,6 @@ for ($num = 2; $num <= $n; $num++) {
             break;
         }
     }
-
     if (!$primo) {
         continue;
     }

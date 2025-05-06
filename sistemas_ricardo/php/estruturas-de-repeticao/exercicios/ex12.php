@@ -7,7 +7,7 @@
 $a = readline("Digite o primeiro número: ");
 $b = readline("Digite o segundo número: ");
 
-if (!is_number($a) || !is_numeric($b)){
+if (!is_numeric($a) || !is_numeric($b)){
     echo "Caractere inválido, digite apenas números inteiros.\n";
     exit;
 }
@@ -24,8 +24,6 @@ else if ($b > $a){
 }else {
     echo "Os números são iguais, não há intervalo entre eles \n";
 }
-
-
 
 // Utilizando while: 
 
@@ -54,9 +52,5 @@ else if ($b > $a){
 else {
     echo "Os valores são iguais, não há intervalo entre eles, \n";
 }
-
-
-
-
 
 ?>

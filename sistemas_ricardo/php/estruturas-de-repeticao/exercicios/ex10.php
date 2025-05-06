@@ -15,4 +15,4 @@ do {
 echo "Você digitou um valor negativo, programa finalizado. \n";
 echo "A soma de todos os valores inteiros e positivos digitados é $soma. \n";
 
-?> 
+?>

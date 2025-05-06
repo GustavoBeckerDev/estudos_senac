@@ -6,7 +6,7 @@ $numero = readline("Digite um número: ");
 $soma = 0;
 
 if (!is_numeric($numero)) {
-    echo "O valor digitado não é um número válido.\n";
+    echo "O valor digitado não é um número.\n";
     exit;
 }
 

@@ -9,4 +9,5 @@ for ($i=1; $i<=$n; $i++){
     $soma+=$quadrado;
 }
 echo "A soma de todos os quadrados de 1 até N é: $soma \n";
+
 ?>
