@@ -39,7 +39,7 @@ create table cad_contatos_cliente (
   cliente_id INT(6) NOT NULL,
   tipo varchar(1) not null DEFAULT 'P',
   celular varchar(20) not null,
-  fixo varchar(20) not null,
+  fixo varchar(20),
   email varchar(200), 
   
   FOREIGN KEY (cliente_id) REFERENCES cad_clientes(id)
