@@ -1,7 +1,7 @@
 <?php
 
 // Crie um sistema de notas escolares usando matrizes.
-// O sistema armazenará 4 notas de 3 alunos, calculará a média de cada aluno e exibirá mos resultados.
+// O sistema armazenará 4 notas de 3 alunos, calculará a média de cada aluno e exibirá os resultados.
 
 $notas[0][0]=null;
 $linhas = 3;
