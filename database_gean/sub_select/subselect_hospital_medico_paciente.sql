@@ -33,7 +33,7 @@ INSERT INTO paciente (nome_paciente, id_medico) VALUES
 ('Mariana Silva', 1),
 ('Lucas Oliveira', 2);
 
-select nome_paciente,
+select nome_paciente as "nome do paciente",
 (select nome_medico from medico where paciente.id_medico = medico.id) as "nome do medico",
 (select nome_hospital from hospital where hospital.id = 
 (select id_hospital from medico where medico.id = paciente.id_medico)) as "nome do hospital"

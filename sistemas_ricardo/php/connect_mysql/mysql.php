@@ -1,0 +1,31 @@
+<?php
+
+// VARIÁVEIS PARA CONEXÃO AO MYSQL E AO BANCO DE DADOS
+$host = '127.0.0.1';
+$username = 'aluno13';
+$password = '';
+$dbname = 'aluno13';
+
+// ESTABELECE A CONEXÃO COM O BANCO DE DADOS UTILIZANDO A FUNÇÃO 'MYSQLI_CONNECT'
+$conexao = mysqli_connect($host, $username, $password, $dbname);
+
+// SE A CONEXÃO NÃO FOR ESTABELECIDA O SISTEMA É FECHADO COM UMA MENSAGEM.
+if (!$conexao){
+    die ("Não foi possível conectar.");
+}
+
+// CRIA SCRIP SQL 
+$sql = "select * from hospital";
+
+//
+$resultado = mysqli_query($conexao, $sql) or die ("Não foi possível conectar. ");
+
+if (mysqli_num_rows($resultado) > 0){
+    $registros = mysqli_fetch_all($resultado);
+}
+
+foreach($registros as $values){
+   print_r($values);
+}
+
+?>

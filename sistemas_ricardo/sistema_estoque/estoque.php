@@ -2,6 +2,7 @@
 
 $estoque = [];
 
+
 function menu() {
     echo "\n===== MENU ESTOQUE =====\n";
     echo "1. Listar produtos\n";
@@ -14,14 +15,15 @@ function menu() {
 
 function listar($estoque) {
     if (empty($estoque)) {
-        echo "Estoque vazio.\n";
-        echo "------------------------\n";
+        echo "---------------------------------\n";
+        echo "----------Estoque vazio----------\n";
+        echo "---------------------------------\n";
         return;
     }
 
-    echo "\n--- PRODUTOS NO ESTOQUE ---\n";
+    echo "\n--------- PRODUTOS NO ESTOQUE ---------\n";
     foreach ($estoque as $id => $produto) {
-        echo "ID: $id | Nome: {$produto['nome']} | Qtd: {$produto['quantidade']} | Valor: R$ {$produto['valor']}\n";
+        echo "ID: $id | Nome: {$produto['nome']} | Qtd: {$produto['quantidade']} | Valor: R$ {$produto['valor']} | Validade: {$validade['validade']} \n";
     }
 }
 
@@ -29,8 +31,11 @@ function adicionar(&$estoque) {
     $nome = readline("Nome do produto: ");
     $quantidade = (int) readline("Quantidade: ");
     $valor = (float) readline("Valor (ex: 10.50): ");
-    $estoque[] = ['nome' => $nome, 'quantidade' => $quantidade, 'valor' => $valor];
+    $validade = readline("Data de validade, Ex: AA-MM-DD");
+    $estoque[] = ['nome' => $nome, 'quantidade' => $quantidade, 'valor' => $valor, 'validade' => $validade];
     echo "Produto adicionado com sucesso!\n";
+
+
 }
 
 function alterar(&$estoque) {
@@ -44,6 +49,7 @@ function alterar(&$estoque) {
     $estoque[$id]['nome'] = readline("Novo nome: ");
     $estoque[$id]['quantidade'] = (int) readline("Nova quantidade: ");
     $estoque[$id]['valor'] = (float) readline("Novo valor: ");
+    $validade[$id]['validade'] = readline("Altere a validade: ");
     echo "Produto alterado com sucesso!\n";
 }
 
