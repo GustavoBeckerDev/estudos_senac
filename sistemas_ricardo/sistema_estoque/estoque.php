@@ -1,7 +1,7 @@
 <?php
 
 $estoque = [];
-
+$dataatual = new DateTime("2025-05-10");
 
 function menu() {
     echo "\n===== MENU ESTOQUE =====\n";
@@ -15,42 +15,55 @@ function menu() {
 
 function listar($estoque) {
     if (empty($estoque)) {
-        echo "---------------------------------\n";
-        echo "----------Estoque vazio----------\n";
-        echo "---------------------------------\n";
+        echo "-----------------------------------\n";
+        echo "---------- Estoque vazio ----------\n";
+        echo "-----------------------------------\n";
         return;
     }
 
-    echo "\n--------- PRODUTOS NO ESTOQUE ---------\n";
+    echo "--------- PRODUTOS NO ESTOQUE ---------\n";
     foreach ($estoque as $id => $produto) {
-        echo "ID: $id | Nome: {$produto['nome']} | Qtd: {$produto['quantidade']} | Valor: R$ {$produto['valor']} | Validade: {$validade['validade']} \n";
+        echo "ID: $id | Nome: {$produto['nome']} | Qtd: {$produto['quantidade']} | Valor: R$ {$produto['valor']} | Validade: " . $produto['validade']->format('d/m/Y') . "\n";
     }
 }
 
 function adicionar(&$estoque) {
+    global $dataatual;
     $nome = readline("Nome do produto: ");
     $quantidade = (int) readline("Quantidade: ");
     $valor = (float) readline("Valor (ex: 10.50): ");
-    $validade = readline("Data de validade, Ex: AA-MM-DD");
+    $validadestr = readline("Data de validade Ex: AAAA-MM-DD: ");
+    $validade = new DateTime($validadestr);
+
+    if ($validade <= $dataatual){
+        echo "Produto com validade vencida ou muito próxima, não pode ser adicionado ao estoque. \n";
+    } else {
     $estoque[] = ['nome' => $nome, 'quantidade' => $quantidade, 'valor' => $valor, 'validade' => $validade];
     echo "Produto adicionado com sucesso!\n";
-
-
+    }
 }
 
 function alterar(&$estoque) {
+    global $dataatual;
     listar($estoque);
     $id = (int) readline("Informe o ID do produto que deseja alterar: ");
     if (!isset($estoque[$id])) {
         echo "Produto não encontrado.\n";
         return;
     }
-
     $estoque[$id]['nome'] = readline("Novo nome: ");
     $estoque[$id]['quantidade'] = (int) readline("Nova quantidade: ");
     $estoque[$id]['valor'] = (float) readline("Novo valor: ");
-    $validade[$id]['validade'] = readline("Altere a validade: ");
+    $validadestr = readline("Nova validade (AAAA-MM-DD): ");
+    $validade = new DateTime($validadestr);
+
+    if ($validadestr <= $dataatual){
+        echo "Validade vencida, não pode ser adicionada. \n";
+    }
+    else {
+    $estoque[$id]['validade'] = $validade;
     echo "Produto alterado com sucesso!\n";
+    }
 }
 
 function remover(&$estoque) {
