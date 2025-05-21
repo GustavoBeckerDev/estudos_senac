@@ -1,6 +1,25 @@
 <?php
 
-$estoque = [];
+$estoque = [
+        [
+        'nome' => 'Arroz',
+        'quantidade' => 10,
+        'valor' => 22.50,
+        'validade' => new DateTime('2025-12-15')
+    ],
+    [
+        'nome' => 'Feijão',
+        'quantidade' => 15,
+        'valor' => 8.90,
+        'validade' => new DateTime('2025-10-20')
+    ],
+    [
+        'nome' => 'Açúcar',
+        'quantidade' => 8,
+        'valor' => 31.50,
+        'validade' => new DateTime('2025-12-21')
+    ]
+];
 $dataatual = new DateTime("2025-05-10");
 
 function menu() {
@@ -15,9 +34,9 @@ function menu() {
 
 function listar($estoque) {
     if (empty($estoque)) {
-        echo "-----------------------------------\n";
+        echo "\033[1;31m-----------------------------------\n";
         echo "---------- Estoque vazio ----------\n";
-        echo "-----------------------------------\n";
+        echo "-----------------------------------\033[0m\n";
         return;
     }
 

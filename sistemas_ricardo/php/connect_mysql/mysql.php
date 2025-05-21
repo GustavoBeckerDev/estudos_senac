@@ -1,10 +1,10 @@
 <?php
 
-// VARIÁVEIS PARA CONEXÃO AO MYSQL E AO BANCO DE DADOS
-$host = '127.0.0.1';
-$username = 'aluno13';
+// VARIÁVEIS PARA CONEXÃO AO MYSQL E AO BANCO DE DADOS 
+$host = 'localhost';
+$username = 'root';
 $password = '';
-$dbname = 'aluno13';
+$dbname = 'subselect';
 
 // ESTABELECE A CONEXÃO COM O BANCO DE DADOS UTILIZANDO A FUNÇÃO 'MYSQLI_CONNECT'
 $conexao = mysqli_connect($host, $username, $password, $dbname);
@@ -15,10 +15,11 @@ if (!$conexao){
 }
 
 // CRIA SCRIP SQL 
-$sql = "select * from hospital";
+$sql = "select * from funcionario";
 
 //
-$resultado = mysqli_query($conexao, $sql) or die ("Não foi possível conectar. ");
+$resultado = mysqli_query($conexao, $sql) 
+or die ("Não foi possível conectar. ");
 
 if (mysqli_num_rows($resultado) > 0){
     $registros = mysqli_fetch_all($resultado);
