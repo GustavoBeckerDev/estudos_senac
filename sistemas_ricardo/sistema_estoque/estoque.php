@@ -1,11 +1,13 @@
 <?php
 
+$dataatual = new DateTime("");
+
 $estoque = [
-        [
+    [
         'nome' => 'Arroz',
         'quantidade' => 10,
         'valor' => 22.50,
-        'validade' => new DateTime('2025-12-15')
+        'validade' => new DateTime('2025-05-15')
     ],
     [
         'nome' => 'Feijão',
@@ -17,10 +19,9 @@ $estoque = [
         'nome' => 'Açúcar',
         'quantidade' => 8,
         'valor' => 31.50,
-        'validade' => new DateTime('2025-12-21')
+        'validade' => new DateTime('2025-05-21')
     ]
 ];
-$dataatual = new DateTime("2025-05-10");
 
 function menu() {
     echo "\n===== MENU ESTOQUE =====\n";
@@ -34,9 +35,9 @@ function menu() {
 
 function listar($estoque) {
     if (empty($estoque)) {
-        echo "\033[1;31m-----------------------------------\n";
+        echo "-----------------------------------\n";
         echo "---------- Estoque vazio ----------\n";
-        echo "-----------------------------------\033[0m\n";
+        echo "-----------------------------------\n";
         return;
     }
 
@@ -120,6 +121,6 @@ do {
         default:
             echo "Opção inválida!\n";
     }
-} while ($opcao !== 0);
+} while ($opcao != 0);
 
 ?>

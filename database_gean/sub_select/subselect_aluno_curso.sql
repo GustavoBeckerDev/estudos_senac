@@ -21,5 +21,5 @@ INSERT INTO aluno (nome_aluno, id_curso) VALUES
 
 select nome_aluno,
 (select nome_curso from curso where curso.id = aluno.id_curso) as "nome e curso"
-from aluno;
+from aluno;medico
 

@@ -9,7 +9,6 @@ CREATE TABLE funcionario (
   id_departamento INT
 );
 
-
 -- departamentos
 INSERT INTO departamento (nome_departamento) VALUES
 ('Recursos Humanos'),
@@ -22,9 +21,8 @@ INSERT INTO funcionario (nome_funcionario, id_departamento) VALUES
 ('Larissa Costa', 2),
 ('Marcelo Dias', 3);
 
-
 -- RETORNE >>> nome do funcionário + nome do departamento:
 
 select nome_funcionario,
-(select  nome_departamento from departamento where departamento.id = funcionario.id) as "nome e curso"
-from funcionario
+(select  nome_departamento from departamento where departamento.id = funcionario.id_departamento) as "nome e curso"
+from funcionario;
