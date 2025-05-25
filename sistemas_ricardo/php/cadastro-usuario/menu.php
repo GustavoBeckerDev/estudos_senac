@@ -20,18 +20,27 @@ function exibemenu()
 function processaopcao($op)
 {
     switch($op){
-        case 1: cadastrousuario();
-        break;
-        case 2: listarTodosUsuarios();
-        break;
+        case 1: 
+            echo "SESSÃO DE CADASTRO DE USUÁRIO: \n";
+            cadastrousuario();
+            break;
+        case 2: 
+            echo "LISTANDO TODOS OS USUÁRIOS: \n";
+            listarUsuarios();
+            break;
         case 3:
-
+            echo "SESSÃO DE EDIÇÃO DADOS DOS USUÁRIOS: \n";
+            editarUsuario();
+            break;
         case 4:
 
         case 5:
 
+        case 6: 
+            echo "Saindo do programa... \n";
+            exti;
         default:
-
+            echo "Opção inválida, tente novamente. \n";
     }
 }
 

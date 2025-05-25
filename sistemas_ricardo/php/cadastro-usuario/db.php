@@ -18,7 +18,7 @@ function desconectar($db)
     mysqli_close($db);
 }
 
-function inserir($db, $query, $dados)
+function cadastrar($db, $query, $dados)
 {
     $result = mysqli_execute_query($db, $query, $dados);
     if (!$result){
@@ -27,11 +27,20 @@ function inserir($db, $query, $dados)
     return $result;
 }
 
-function buscar($db, $query)
+function listar($db, $query)
 {
     $result = mysqli_execute_query($db,$query);
     $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $array;
+}
+
+function editar($db, $query)
+{
+    $result = mysqli_query($db, $query);
+    if (!$result) {
+        echo ("Erro na consulta. ");
+    }
+    return; 
 }
 
 ?>
