@@ -33,12 +33,12 @@ function processaopcao($op)
             editarUsuario();
             break;
         case 4:
-
-        case 5:
-
-        case 6: 
+            echo "SESSÃO PARA EXCLUIR USUÁRIO. \n";
+            excluirUsuario();
+            break;
+        case 5: 
             echo "Saindo do programa... \n";
-            exti;
+            exit;
         default:
             echo "Opção inválida, tente novamente. \n";
     }

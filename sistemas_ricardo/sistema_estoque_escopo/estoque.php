@@ -4,7 +4,8 @@ $dataatual = new DateTime("");
 
 $estoque = 
 [
-    [
+    [   
+        'cod' => 202522,
         'nome' => 'Arroz',
         'quantidade' => 10,
         'valor' => 22.50,

@@ -24,7 +24,7 @@ function listarUsuarios()
 {
     $query = 'SELECT * FROM usuario';
     $db = conectar();
-    $listaUsuarios = listar($db, $query);
+    $listaUsuarios = buscar($db, $query);
     desconectar($db);
     foreach($listaUsuarios as $usuario){
         echo "ID : " . $usuario['id'] . 
@@ -37,35 +37,53 @@ function listarUsuarios()
 
 function editarUsuario()
 {
-    listarUsuarios();
-    echo "Digite o ID do usuário que deseja editar: ";
-    $id = intval(trim(readline()));
-
-    echo "Informe os novos dados.\n";
-    $novologin = readline("Informe o novo login: ");
-    $novasenha = sha1(readline("Informe a nova senha: "));
-    $novonome = readline("Informe o novo nome: ");
-    $novoemail = readline("Informe o novo email: ");
-    $novafuncao = readline("Informe a nova função: ");
-
-    $query = "UPDATE `usuario` SET 
-        `login` = '$novologin', 
-        `senha` = '$novasenha', 
-        `nome` = '$novonome', 
-        `email` = '$novoemail', 
-        `funcao` = '$novafuncao'
-        WHERE `id` = $id";
-
-    $db = conectar();
-    $resultado = editar($db, $query);
-
-    if (!$resultado) {
-        echo "ERRO NA EDIÇÃO DE USUÁRIO, TENTE NOVAMENTE. \n";
-    } else {
-        echo "USUÁRIO EDITADO COM SUCESSO. \n";
+    echo "Editar usuário: \n";
+    echo "Qual usuário deseja alterar? \n";
+    $login = readline("Informe o login: ");
+    $usuario = buscarUsuario($login);
+    for($i=1; $i<count($usuario); $i++){
+        echo "[$usuario[$i]]";
+        $valor = readline(">");
+        if (!$valor==""){
+            $usuario[$i] = $valor;
+        }
+        $valores[] = $usuario[$i];
     }
-
+    $valores[] = $usuario[0];
+    print_r($valores);
+    $db = conectar();
+    $query = "UPDATE usuario SET login=?, senha=?, nome=?, email=?, funcao=? WHERE id=?";
+    editar($db, $query, $usuario);
     desconectar($db);
+}
+
+function buscarUsuario($valor)
+{
+    $query = "SELECT * FROM usuario WHERE login=?";
+    $db = conectar();
+    $usuario = buscarUnico($db, $query, array($valor));
+    desconectar($db);
+    if (!$usuario){
+        echo "Login não encontrado. \n";
+        return 0;
+    }
+    return $usuario;
+}
+
+function excluirUsuario()
+{
+    echo "Qual usuário deseja excluir? \n";
+    $login[] = readline("Informe o login: ");
+    $query = "DELETE FROM usuario WHERE login=?";
+    $db = conectar();
+    $result = excluir($db, $query, $login);
+    desconectar($db);
+    if ($result){
+        echo "Registro excluído com sucesso \n";
+    }
+    else {
+        echo "Erro ao excluir. \n";
+    }
 }
 
 ?>

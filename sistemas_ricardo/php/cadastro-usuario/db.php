@@ -27,20 +27,36 @@ function cadastrar($db, $query, $dados)
     return $result;
 }
 
-function listar($db, $query)
+function buscar($db, $query)
 {
     $result = mysqli_execute_query($db,$query);
     $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $array;
 }
 
-function editar($db, $query)
+function buscarUnico($db, $query, $parametro)
 {
-    $result = mysqli_query($db, $query);
-    if (!$result) {
-        echo ("Erro na consulta. ");
-    }
-    return; 
+    $result = mysqli_execute_query($db, $query, $parametro);
+    $array = mysqli_fetch_array($result, MYSQLI_NUM);
+    return $array;
 }
 
+function editar($db, $query, $dados)
+{
+    $result = mysqli_execute_query($db, $query, $dados);
+    if (!$result){
+        return "Error ao inserir. \n";
+    }
+    return $result; 
+}
+
+function excluir($db, $query, $dados)
+{
+    $result = mysqli_execute_query($db, $query, $dados);
+    if (!$result){
+        return "Error ao inserir. \n";
+    }
+    return $result;
+
+}
 ?>
