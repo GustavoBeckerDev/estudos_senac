@@ -18,7 +18,7 @@ if (!$conexao){
 $sqlselect = "select nome_funcionario as 'nome do funcionario',
             (select nome_departamento from departamento where departamento.id = funcionario.departamento_id) as 'nome do departamento',
             (select nome_cidade from cidade where cidade.id = funcionario.cidade_id) as 'nome da cidade'
-            from funcionario;";
+            from funcionario";
 
 // PEGA O RESULTADO DA CONSULTA, UTILIZANDO COMO PARÂMETRO A CONEXÃO E O SCRIP SQL
 $resultado = mysqli_query($conexao, $sqlselect) 

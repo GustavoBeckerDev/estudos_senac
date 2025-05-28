@@ -27,14 +27,14 @@ function cadastrar($db, $query, $dados)
     return $result;
 }
 
-function buscar($db, $query)
+function listar($db, $query)
 {
     $result = mysqli_execute_query($db,$query);
     $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $array;
 }
 
-function buscarUnico($db, $query, $parametro)
+function buscarUser($db, $query, $parametro)
 {
     $result = mysqli_execute_query($db, $query, $parametro);
     $array = mysqli_fetch_array($result, MYSQLI_NUM);
@@ -57,6 +57,5 @@ function excluir($db, $query, $dados)
         return "Error ao inserir. \n";
     }
     return $result;
-
 }
 ?>
