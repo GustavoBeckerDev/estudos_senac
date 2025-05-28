@@ -19,15 +19,14 @@ function negrito($texto) {
 }
 
 function limparTela() {
-    system('clear'); // Linux/Mac
-    // system('cls'); // Windows - descomente se usar Windows
+    system('cls');
 }
 
 function titulo($texto) {
     $largura = 60;
     echo "\n";
     echo cor("╔" . str_repeat("═", $largura - 2) . "╗", 'ciano') . "\n";
-    echo cor("║", 'ciano') . negrito(centralizarTexto($texto, $largura - 2)) . cor("    ║", 'ciano') . "\n";
+    echo cor("║", 'ciano') . negrito(centralizarTexto($texto, $largura - 2)) . cor(" ║", 'ciano') . "\n";
     echo cor("╚" . str_repeat("═", $largura - 2) . "╝", 'ciano') . "\n\n";
 }
 

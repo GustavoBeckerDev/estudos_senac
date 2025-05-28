@@ -7,7 +7,7 @@ require 'produto.php';
 function exibemenu()
 {
     limparTela();
-    titulo("🚀 SISTEMA DE GESTÃO    ");
+    titulo("SISTEMA DE GESTÃO        ");
     
     echo cor("┌─────────────────────────────────────────┐", 'azul') . "\n";
     echo cor("│", 'azul') . negrito(centralizarTexto("MENU PRINCIPAL", 39)) . cor("  │", 'azul') . "\n";
