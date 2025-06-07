@@ -3,14 +3,7 @@
 // DESENVOLVA UM CONTROLE DE ESTOQUE SIMPLIFICADO. O SISTEMA DEVE ADICIONAR E REMOVER PRODUTOS, SEMPRE PREZANDO PELA CORRETUDE DOS DADOS.
 // O PRODUTO DEVE CONTER NOME, QUANTIDADE E PREÇO MÉDIO.
 
-$estoque = 
-[
-    [
-        'nome' => 'milho',
-        'quantidade' => 12,
-        'precomedio' => 4.99,
-    ]
-];
+$estoque = [];
 
 function listar($estoque)
 {
