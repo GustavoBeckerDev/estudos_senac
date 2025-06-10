@@ -55,7 +55,7 @@ function listarDetalhada($estoqueFiltrado)
 {
     echo "\n---------- LISTAGEM DETALHADA ----------\n";
     foreach ($estoqueFiltrado as $id => $produto) {
-        echo "IDX: $id | COD: {$produto['cod']} | Nome: {$produto['nome']} | Qtd: {$produto['quantidade']} | Preço Médio: R$ " . number_format($produto['precomedio'], 2, ',', '.') . " | Total: R$ " . number_format($produto['total'], 2, ',', '.') . "\n";
+        echo "IDX: $id | COD: {$produto['cod']} | Nome: {$produto['nome']} | Qtd: {$produto['quantidade']} | Valor unitário: R$ " . number_format($produto['precomedio'], 2, ',', '.') . " | Total: R$ " . number_format($produto['total'], 2, ',', '.') . "\n";
     }
 }
 
@@ -66,18 +66,19 @@ function listar($estoque)
     return $codCompare;
     });
 
-    echo "\n1 - Listar todo o estoque\n";
-    echo "2 - Buscar por código\n";
+    echo "1 - Listar todo o estoque. \n";
+    echo "2 - Buscar por código. \n";
     $op = trim(readline("Escolha: "));
 
     $estoqueFiltrado = [];
 
     if ($op == '1') {
         $estoqueFiltrado = $estoque;
-    } elseif ($op == '2') {
-        $cod = trim(readline("Informe o código do produto: "));
+    } 
+    elseif ($op == '2') {
+        $cod = trim(readline("Informe o código do produto: Ex: 001, 002, 003, 004 : "));
         foreach ($estoque as $produto) {
-            if (strtolower(trim($produto['cod'])) === strtolower(trim($cod))){
+            if (trim($produto['cod']) === trim($cod)){
                 $estoqueFiltrado[] = $produto;
             }
         }
@@ -86,7 +87,7 @@ function listar($estoque)
             return;
         }
     } else {
-        echo "Opção inválida.\n";
+        echo "Opção inválida, tente novamente.\n";
         return;
     }
 
@@ -134,11 +135,12 @@ function adicionar(&$estoque)
 
 function remover(&$estoque)
 {
-    listar($estoque);
+    listarDetalhada($estoque);
+    echo "----- ESCOLHA UM ITEM PARA DAR BAIXA: -----\n";
     $id = (int) readline("Informe o ID do produto que deseja remover: ");
-    if (!isset($estoque[$id])) {
-        echo "Produto não encontrado.\n";
-        return;
+        if (!isset($estoque[$id])) {
+            echo "Produto não encontrado.\n";
+            return;
     }
 
     echo "Deseja realmente remover este item? (s/n): ";
@@ -149,7 +151,6 @@ function remover(&$estoque)
     }
 
     unset($estoque[$id]);
-    $estoque = array_values($estoque);
     echo "Produto removido com sucesso!\n";
 }
 

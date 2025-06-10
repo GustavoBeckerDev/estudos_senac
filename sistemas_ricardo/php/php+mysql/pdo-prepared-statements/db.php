@@ -2,7 +2,7 @@
 
 // TESTE DE CONEXÃO AO BANCO DE DADOS COM PREPARED STATEMENTS UTILIZANDO PDO.
 
-
+$localhost = "localhost";
 
 
 ?>
