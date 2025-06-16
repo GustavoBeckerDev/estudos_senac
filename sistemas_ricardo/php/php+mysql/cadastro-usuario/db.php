@@ -58,4 +58,5 @@ function excluir($db, $query, $dados)
     }
     return $result;
 }
+
 ?>
