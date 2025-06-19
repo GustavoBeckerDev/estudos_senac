@@ -44,7 +44,7 @@ function editarUsuario(){
     echo "Pressione ENTER para manter o valor atual\n\n";
 
     for($i=1;$i<count($usuario);$i++){
-        echo $campos[$i] . ": " . $usuario[$i] . " = Novo" . ucfirst($campos[$i]) . ": ";
+        echo $campos[$i] . ": " . $usuario[$i] . " = Novo" . ($campos[$i]) . ": ";
         $valor = readline("");
         if($valor == ""){
             $valores[] = $usuario[$i];
