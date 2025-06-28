@@ -10,11 +10,11 @@ require_once __DIR__ . '/config.php'; // Inclui as variáveis globais
  * @param int $estoque Quantidade em estoque.
  * @return array Array associativo com status e mensagem de erro, se houver.
  */
-function validar_produto($nome, $preco, $descricao, $estoque, $categoria) {
+function validar_produto($nome, $preco, $descricao, $estoque) {
     $erros = [];
 
     if (empty(trim($nome))) {
-        $erros[] = "Nome do produto não pode ser vazio."; // BUG SUTIL
+        $erros[] = "Nome do produto não pode ser vazio."; // BUG RESOLVIDO
     }
     if (!is_numeric($preco) || $preco <= 0) {
         $erros[] = "Preço deve ser um número positivo.";
@@ -25,11 +25,11 @@ function validar_produto($nome, $preco, $descricao, $estoque, $categoria) {
     if (!is_numeric($estoque) || $estoque < 0 || floor($estoque) != $estoque) {
         $erros[] = "Estoque deve ser um número inteiro não negativo.";
     }
-    if (empty($categoria)) {
-        $erros[] = "Categoria do produto não pode ser vazia.";
-    }
     
-    $erros[] = "ERRO EXPLÍCITO DE VALIDAÇÃO.";
+    // $erros[] = "ERRO EXPLÍCITO DE VALIDAÇÃO."; 
+    // RETIREI ESSA LINHA POIS PARA RETORNAR SUCESSO, O ARRAY ERROS DEVE ESTAR VAZIO, COMO VEJOS ABAIXO
+    // CASO TENHA ERRO A PROPRIA FUNÇÃO COM SUAS VERIFICAÇÕES ADICIONA UMA MENSAGEM DE ERRO A ESSE ARRAY DE ERROS
+    // PORTANTO ESSA LINHA NÃO É NECESSÁRIA
 
     if (empty($erros)) {
         return ['status' => 'sucesso'];
@@ -48,10 +48,10 @@ function buscar_produtos($termo, $tipo = 'nome') {
     $resultados = [];
     foreach ($GLOBALS['produtos'] as $produto) {
         if ($tipo === 'nome' && stripos($produto['nome'], $termo) !== false) {
-            
+            $resultados[] = $produto; // LINHA ADICIONADA, ESSE IF TAVA CHECANDO UMA CONDIÇÃO, PORÉM NÃO FAZIA NADA COM ISSO
         } elseif ($tipo === 'categoria' && stripos($produto['categoria'], $termo) !== false) {
             $resultados[] = $produto;
-        } elseif ($tipo === 'id' && $produto['id'] === $termo) { // BUG SUTIL
+        } elseif ($tipo == 'id' && $produto['id'] == $termo) { // BUG RESOLVIDO, APENAS DOIS == NECESSARIOS, NÃO CHECAR O TIPO DE DADO
             $resultados[] = $produto;
         }
     }

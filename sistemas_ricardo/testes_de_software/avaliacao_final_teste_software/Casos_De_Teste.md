@@ -1,4 +1,7 @@
+
 Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
+
+------------------------------------  TESTE 01 VALIDAÇÃO DE PRODUTO COM TUDO CORRETO ---------------------------------------
 
 **Teste ID: PROD-001 - Validação de Produto Válido**
 
@@ -9,6 +12,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 **Resultados**
 * A função deve retornar \['status' => 'sucesso'\]. 
 
+------------------------------------- TESTE 02 VALIDAÇÃO DE PRODUTO COM NOME VAZIO ------------------------------------------
+
 **Teste ID: PROD-002 - Validação de Produto com Nome Vazio** 
 **Objetivo:** Verificar a validação de um produto com nome vazio. 
 **Pré-condições:** Nenhuma. 
@@ -17,6 +22,9 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 **Resultados **
 *   A função deve retornar \['status' => 'erro'\]. 
 *   As mensagens de erro devem incluir "Nome do produto não pode ser vazio.".
+
+------------------------------------- TESTE 03 VALIDAÇÃO DE PRODUTO COM PREÇO NEGATIVO ----------------------------------------
+
 **Teste ID: PROD-003 - Validação de Produto com Preço Negativo**
 **Objetivo:** Verificar a validação de um produto com preço negativo. 
 **Pré-condições:** Nenhuma. 
@@ -25,6 +33,9 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 **Resultados:**  
 * A função deve retornar \['status' => 'erro'\]. 
 * As mensagens de erro devem incluir "Preço deve ser um número positivo.". 
+
+------------------------------------- TESTE 04 VALIDAÇÃO DE PRODUTO COM ESTOQUE NÃO NUMÉRICO ----------------------------------------
+
 **Teste ID: PROD-004 - Validação de Produto com Estoque Não Numérico**
 
 **Objetivo:**** Verificar a validação de um produto com estoque não numérico. 
@@ -35,6 +46,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 *A função deve retornar \['status' => 'erro'\]. 
 *As mensagens de erro devem incluir "Estoque deve ser um número inteiro não negativo.". 
 
+------------------------------------- TESTE 05 BUSCA DE PRODUTO POR NOME ----------------------------------------
+
 **Teste ID: PROD-005 - Busca de Produto por Nome**
 
 **Objetivo:** Verificar se a busca de produtos por nome retorna resultados esperados. 
@@ -43,6 +56,9 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 * Chamar buscar\_produtos('Camiseta', 'nome'). 
 **Resultados**  
 * A função deve retornar um array contendo o produto 'Camiseta'. 
+
+------------------------------------- TESTE 06 BUSCA DE PRODUTO POR CATEGORIA ----------------------------------------
+
 **Teste ID: PROD-006 - Busca de Produto por Categoria**
 
 **Objetivo:** Verificar se a busca de produtos por categoria funciona corretamente. 
@@ -51,6 +67,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 * Chamar buscar\_produtos('Roupas', 'categoria'). 
 **Resultados**  
 * A função deve retornar um array contendo os produtos 'Camiseta' e 'Calça Jeans'. 
+
+------------------------------------- TESTE 07 BUSCA DE PRODUTO POR ID ----------------------------------------
 
 **Teste ID: PROD-007 - Busca de Produto por ID (String e Int)**
 
@@ -63,9 +81,7 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 * Para o passo 1: A função deve retornar um array contendo a 'Calça Jeans'. 
 * Para o passo 2: A função deve retornar um array contendo a 'Calça Jeans'. 
   
-    
-
-
+------------------------------------- TESTE 08 ATUALIZAÇÃO DE ESTOQUE ----------------------------------------
 
 **Teste ID: PROD-008 - Atualização de Estoque - Decremento**
 
@@ -78,6 +94,10 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 **Resultados**  
 * A função deve retornar \['status' => 'sucesso'\]. 
 * O estoque da 'Camiseta' deve ser atualizado para 40. 
+
+------------------------------------- TESTE 09 ATUALIZAÇÃO DE ESTOQUE ----------------------------------------
+
+
 **Teste ID: PROD-009 - Atualização de Estoque - Insuficiente**
 
 **Objetivo:** Verificar se a atualização de estoque impede operações com quantidade insuficiente. 
@@ -87,7 +107,12 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 **Resultados**  
 * A função deve retornar \['status' => 'erro', 'mensagem' => 'Estoque insuficiente para esta operação.'\]. 
 * O estoque do 'Tênis Esportivo' deve permanecer 20. 
+
+---------------------------------- MÓDULO DOIS : CARRINHO DE COMPRAS ---------------------------------------
+
 **Módulo 2: Carrinho de Compras (carrinho\_compras.php)**
+
+------------------------------------- TESTE 01 : ADICIONAR NOVO ITEM AO CARRINHO ----------------------------------
 
 **Teste ID: CARR-001 - Adicionar Novo Item ao Carrinho** 
 
@@ -106,6 +131,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 
 * O item no carrinho deve conter as chaves 'nome' e 'preco' com os valores corretos do produto. 
 
+--------------------------------- TESTE 02 : ADICIONAR MAIS UNIDADES DE ITEM EXISTENTE ---------------------------------------
+
 **Teste ID: CARR-002 - Adicionar Mais Unidades de Item Existente** 
 
 **Objetivo:** Verificar se a quantidade de um item existente no carrinho é atualizada corretamente. 
@@ -121,6 +148,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 * A função deve retornar \['status' => 'sucesso'\]. 
 
 * A quantidade total do produto 1 no carrinho deve ser 5. 
+
+------------------------------------ TESTE 03 : REMOVER ITEM DO CARRINHO -----------------------------------------------------
 
 **Teste ID: CARR-003 - Remover Item do Carrinho** 
 
@@ -138,6 +167,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 
 * O produto\_id 2 não deve mais existir no $GLOBALS\['carrinho'\]. 
 
+------------------------------------ TESTE 04 : ATUALIZAR QUANTIDADE DE ITEM (DIMINUIR) ----------------------------------------
+
 **Teste ID: CARR-004 - Atualizar Quantidade de Item (Diminuir)** 
 
 **Objetivo:** Verificar a atualização da quantidade de um item existente para um valor menor. 
@@ -154,6 +185,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 
 * A quantidade do produto 1 no carrinho deve ser 2. 
 
+------------------------------------- ATUALIZAR QUANTIDADE DE ITEM (PARA ZERO/REMOVER) -------------------------------------
+
 **Teste ID: CARR-005 - Atualizar Quantidade de Item (Para Zero/Remover)** 
 
 **Objetivo:** Verificar se atualizar a quantidade para zero ou menos remove o item do carrinho. 
@@ -169,6 +202,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 * A função deve retornar \['status' => 'sucesso'\]. 
 
 **O produto\_id 3 não deve mais existir no $GLOBALS\['carrinho'\]. 
+
+-------------------------------------------------- CALCULAR TOTAL DO CARRINHO -------------------------------------------------
 
 **Teste ID: CARR-006 - Calcular Total do Carrinho**
 
@@ -191,6 +226,8 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 **Resultados**  
 
 * A função deve retornar o valor (29.90 \* 2) + (89.90 \* 1) + (150.00 \* 3) = 59.80 + 89.90 + 450.00 = 599.70. 
+
+------------------------------------------------------------------------------------------------------------------------------
 
 Módulo 3: Pedidos (pedidos.php) 
 
@@ -290,6 +327,8 @@ Teste ID: PED-003 - Criação de Pedido com Produto Inexistente no Catálogo 
 
 * O status do pedido não deve ser alterado e permanecer 'entregue'. 
 
+--------------------------------------------- MÓDULO 04 PROCESSAMENTO DE PAGAMENTO ----------------------------------------------
+
 **Módulo 4: Processamento de Pagamento (processamento\_pagamento.php)** 
 
 **Teste ID: PGTO-001 - Processar Pagamento Válido** 
@@ -305,6 +344,8 @@ Teste ID: PED-003 - Criação de Pedido com Produto Inexistente no Catálogo 
 **Resultados**  
 
 * A função deve retornar \['status' => 'sucesso', 'mensagem' => 'Pagamento processado com sucesso.'\]. 
+
+------------------------------------ TESTE 02 PROCESSAR PAGAMENTO COM VALOR ZERO OU NEGATIVO ------------------------------------
 
 **Teste ID: PGTO-002 - Processar Pagamento com Valor Zero ou Negativo**
 
@@ -350,6 +391,8 @@ Teste ID: PED-003 - Criação de Pedido com Produto Inexistente no Catálogo 
 **Resultados**  
 
 * A função deve retornar \['status' => 'recusado', 'mensagem' => 'Saldo insuficiente.'\]. 
+
+----------------------------------------------------------------------------------------------------
 
 **Módulo 5: Funções Auxiliares e Utilitários (auxiliares\_utilitarios.php)**
 

@@ -1,6 +1,7 @@
 <?php
 // carrinho_compras.php
 require_once __DIR__ . '/config.php'; // Inclui as variáveis globais
+require_once 'produtos_catalogo.php'; // Caso use a função buscar_produtos
 // Pode precisar incluir produtos_catalogo.php se for interagir diretamente com buscar_produtos, por exemplo.
 // Para o cenário atual, ele acessa $GLOBALS['produtos'] diretamente.
 /**
@@ -21,14 +22,16 @@ function adicionar_item_carrinho($produto_id, $quantidade) {
 
     $produto = $GLOBALS['produtos'][$produto_id];
 
-    $quantidade_real_adicionar = $quantidade * 2;
+    $quantidade_a_adicionar = $quantidade; // RETIREI O * 2 POIS NÃO FAZ SENTIDO DUPLICAR A ADIÇÃO DO USUÁRIO
 
     if (isset($GLOBALS['carrinho'][$produto_id])) {
-        $GLOBALS['carrinho'][$produto_id]['quantidade'] += $quantidade_real_adicionar;
+        $GLOBALS['carrinho'][$produto_id]['quantidade'] += $quantidade_a_adicionar;
     } else {
         $GLOBALS['carrinho'][$produto_id] = [
-            'id' => $produto_id, // BUG SUTIL
-            'quantidade' => $quantidade_real_adicionar
+            'id' => $produto_id,      // BUG SUTIL RESOLVIDO, EU CRIAVA O CARRINHO APENAS COM ID E QUANTIDADE, ADICIONEI NOME E PREÇO
+            'nome' => $produto['nome'], // NOME ADICIONADO
+            'preco' => $produto['preco'], // PRECO ADICIONADO
+            'quantidade' => $quantidade_a_adicionar
         ];
     }
     return ['status' => 'sucesso', 'mensagem' => 'Item adicionado/atualizado no carrinho.'];
@@ -77,7 +80,6 @@ function atualizar_quantidade_item_carrinho($produto_id, $nova_quantidade) {
 function calcular_total_carrinho() {
     $total = 0.0;
     foreach ($GLOBALS['carrinho'] as $item) {
-        // BUG: Assume que 'preco' sempre existe. Se o bug em adicionar_item_carrinho ocorrer, 'preco' pode não existir.
         $total += $item['preco'] * $item['quantidade'];
     }
     return $total;
