@@ -2,6 +2,7 @@
 
 require_once 'modulo01.php';
 require_once 'modulo02.php';
+require_once 'modulo03.php';
 
 echo "\n";
 echo "========== CASOS DE TESTE DA LOJA DE VESTUÁRIO MODA ESSENCIAL ========== \n";
@@ -18,7 +19,6 @@ assert(testarBuscaPorCategoria()); // OK
 assert(testarBuscaPorId()); // OK
 assert(testarAtualizarEstoqueDecremento()); // OK
 assert(testarAtualizacaoEstoqueInsuficiente()); // OK 
-*/
 
 echo "==================== Módulo 2: Carrinho de Compras ===================== \n";
 
@@ -28,7 +28,15 @@ assert(testarRemoverItemCarrinho()); // OK
 assert(testarAtualizarQuantidadeItemCarrinho()); // OK
 assert(testarAtualizarQuantidadeParaZero()); // OK
 assert(testarCalcularTotalCarrinho()); // OK
+*/
 
+echo "==================== Módulo 3: Pedidos ===================== \n";
+
+// assert(testarCriacaoPedidoCarrinhoValido()); // OK
+// assert(testarCriacaoPedidoCarrinhoVazio()); // OK
+// assert(testarCriacaoPedidoProdutoInexistente()); // OK
+// assert(testarAtualizacaoStatusPedidoTransicaoValida()); // OK
+assert(testarAtualizacaoStatusPedidoTransicaoInvalida()); // OK
 
 
 ?>

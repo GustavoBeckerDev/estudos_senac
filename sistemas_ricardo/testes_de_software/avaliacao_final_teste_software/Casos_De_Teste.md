@@ -227,7 +227,7 @@ Módulo 1: Produtos e Catálogo (produtos\_catalogo.php) 
 
 * A função deve retornar o valor (29.90 \* 2) + (89.90 \* 1) + (150.00 \* 3) = 59.80 + 89.90 + 450.00 = 599.70. 
 
-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------- MÓDULO 03 PEDIDOS ---------------------------------------------------------------
 
 Módulo 3: Pedidos (pedidos.php) 
 
@@ -255,6 +255,8 @@ Módulo 3: Pedidos (pedidos.php) 
 
 * O status do pedido criado deve ser 'pendente'. 
 
+-----------------------------------------------------------------------------------------------------------
+
 **Teste ID: PED-002 - Criação de Pedido com Carrinho Vazio**
 
 **Objetivo:** Verificar o comportamento ao tentar criar um pedido com um carrinho vazio. 
@@ -268,6 +270,8 @@ Módulo 3: Pedidos (pedidos.php) 
 **Resultados**  
 
 * A função deve retornar \['status' => 'erro', 'mensagem' => 'Carrinho de compras vazio. Não é possível criar um pedido.'\]. 
+
+---------------------------------------------------------------------------------------------------------------------
 
 Teste ID: PED-003 - Criação de Pedido com Produto Inexistente no Catálogo 
 
@@ -287,6 +291,8 @@ Teste ID: PED-003 - Criação de Pedido com Produto Inexistente no Catálogo 
 
 * A função deve retornar \['status' => 'erro', 'mensagem' => 'Produto não existe no catálogo: ID 99'\] (ou similar, indicando que o produto não foi encontrado antes de tentar acessar seu estoque). 
 
+------------------------------------------------------------------------------------------------------------------------------
+
 **Teste ID: PED-004 - Atualização de Status de Pedido - Transição Válida** 
 
 **Objetivo:** Verificar se o status de um pedido é atualizado corretamente de 'pendente' para 'processando'. 
@@ -304,6 +310,8 @@ Teste ID: PED-003 - Criação de Pedido com Produto Inexistente no Catálogo 
 * A função deve retornar \['status' => 'sucesso'\]. 
 
 * O status do pedido no $GLOBALS\['pedidos'\] deve ser 'processando'. 
+
+-------------------------------------------------------------------------------------------------------------------------------
 
 **Teste ID: PED-005 - Atualização de Status de Pedido - Transição Inválida Negada** 
 
