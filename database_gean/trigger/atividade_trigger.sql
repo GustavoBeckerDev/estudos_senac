@@ -55,7 +55,7 @@ FROM produtos WHERE id = new.id_produto;
 
 IF vquantidade_estoque < NEW.quantidade THEN
 	SIGNAL SQLSTATE '45000' 
-    SET MESSAGE_TEXT = 'ESTOQUE INSUFICIENTE PARA FAZER ESSA VENDA';
+    SET MESSAGE_TEXT = 'ESTOQUE INSUFICIENTE PARA CONCLUIR A VENDA';
 ELSE 
 	UPDATE produtos
 	SET quantidade_estoque = quantidade_estoque - NEW.quantidade
@@ -73,10 +73,6 @@ INSERT INTO produtos (nome, preco, quantidade_estoque) VALUES
 ('Banana Prata', 3.00, 10),
 ('Alface Crespa', 2.50, 7),
 ('Tomate Cereja', 8.00, 3);
-
-INSERT INTO clientes (nome, email) VALUES
-('Ana Silva', 'ana.silva@email.com'),
-('Bruno Costa', 'bruno.costa@email.com');
 
 -- ATIVIDADE 1 e 2 : ATUALIZAR O ESTOQUE AUTOMATICAMENTE :
 
@@ -107,10 +103,17 @@ END IF;
 END $$
 DELIMITER ;
 
+INSERT INTO clientes (nome, email) VALUES
+('Ana Silva', 'ana.silva@email.com'),
+('Bruno Costa', 'bruno.costa@email.com');
+
 UPDATE clientes 
 set nome = 'Gustavo',
 email = 'gustavobecker@email.com'
-WHERE id = 1; -- PASSOU (FEZ O INSERT NA TABELA LOG_CLIENTES)
+WHERE id = 1; -- PASSOU (FEZ O INSERT NA TABELA LOG_CLIENTES COM AS INFORMAÇÕES DA MODIFICAÇÃO)
+
+select * from clientes;
+select * from log_clientes;
 
 -- 4) IMPEDIR CADASTRO DE EMAILS DUPLICADOS :
 
@@ -121,27 +124,73 @@ BEFORE INSERT ON clientes
 FOR EACH ROW
 BEGIN
 
-DECLARE id_cadastrado INT,
+DECLARE total INT;
 
-SELECT id into id_cadastrado
+-- VERIFICA SE O EMAIL JÁ EXISTE NA BASE DE DADOS
+SELECT COUNT(*) INTO total
 FROM clientes
-WHERE email = lower(trim(new.email)))
-LIMIT 1;
+WHERE LOWER(TRIM(email)) = LOWER(TRIM(NEW.email));
 
-IF id_cadastrado IS NOT NULL THEN
-SIGNAL SQLSTATE '4500'
-SET MESSAGE_TEXT 'EMAIL JÁ CADASTRADO'
+IF total > 0 THEN
+	SIGNAL SQLSTATE '45000'
+	SET MESSAGE_TEXT = 'EMAIL JÁ CADASTRADO';
 END IF;
 
 SET NEW.nome = lower(trim(new.nome));
+SET NEW.email = lower(trim(new.email));
 
-
-
-
-
-
-END $$
+end $$
 DELIMITER ;
+
+select * from clientes;
+
+insert into clientes (nome, email) values
+("Gustavo", "gustavobecker@email.com");
+-- NÃO PASSOU, EMAIL JA CADASTRADO, ERRO:
+-- Error 1644. EMAIL JÁ CADASTRADO
+
+insert into clientes (nome,email) values
+("Marcela", "marcela@email.com");
+-- PASSOU, EMAIL NÃO EXISTENTE
+
+-- -----------------------------------------------------------
+
+-- ATIVIDADE 5 : Gerar Alerta de Estoque Baixo ( ABAIXO DE 5 UNIDADES )
+
+CREATE TABLE log_alertas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    produto_id INT,
+    mensagem VARCHAR(255),
+    data_alerta DATETIME
+);
+
+-- TRIGGER PARA LOG ALERTAS
+
+DELIMITER $$
+
+CREATE TRIGGER tgr_alerta_estoque
+AFTER UPDATE ON produtos
+FOR EACH ROW
+BEGIN
+
+IF NEW.quantidade_estoque < 5 AND OLD.quantidade_estoque >= 5 THEN
+
+INSERT INTO log_alertas (produto_id, mensagem, data_alerta) VALUES
+(NEW.id, 'ESTOQUE ABAIXO DE 5', now());
+
+END IF;
+end $$
+
+DELIMITER ;
+
+select * from produtos;
+
+UPDATE produtos 
+SET quantidade_estoque = 4
+WHERE id = 1;
+
+select * from produtos;
+select * from log_alertas;
 
 
 
