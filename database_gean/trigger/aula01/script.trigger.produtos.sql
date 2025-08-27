@@ -37,7 +37,7 @@ INSERT INTO clientes (nome) VALUES
     
 
 DELIMITER $$
-CREATE TRIGGER tgr_after_update_produto -- CRIAÇÃO DO OBJETO COM A DESCRIÇÃO, QUANDO E ONDE VAI ATUAR
+CREATE TRIGGER tgr_after_update_produto
 AFTER UPDATE ON produtos
 FOR EACH ROW
 
