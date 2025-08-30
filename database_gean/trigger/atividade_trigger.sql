@@ -153,6 +153,7 @@ insert into clientes (nome,email) values
 ("Marcela", "marcela@email.com");
 -- PASSOU, EMAIL NÃO EXISTENTE
 
+<<<<<<< HEAD
 -- -----------------------------------------------------------
 
 -- ATIVIDADE 5 : Gerar Alerta de Estoque Baixo ( ABAIXO DE 5 UNIDADES )
@@ -191,6 +192,8 @@ WHERE id = 1;
 
 select * from produtos;
 select * from log_alertas;
+=======
+>>>>>>> 3cabab1d0ab3690c81a2d0d16845190851df3a71
 
 
 
