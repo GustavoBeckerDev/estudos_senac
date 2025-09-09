@@ -17,10 +17,6 @@
 
     <style>
 
-        body {
-            
-        }
-
         .header {
             height: 80px;
             width: 100%;
