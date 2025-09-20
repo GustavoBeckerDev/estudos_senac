@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="cyber-nav">
+        <div class="nav-logo">
+            <a href="#" class="logo-text">&lt;GD/&gt;</a>
+        </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">
+                <span class="link-text">&lt;About/&gt;</span>
+                <div class="link-hover-effect"></div>
+            </a>
+            <a href="#projects" class="nav-link">
+                <span class="link-text">&lt;Projects/&gt;</span>
+                <div class="link-hover-effect"></div>
+            </a>
+            <a href="#contact" class="nav-link">
+                <span class="link-text">&lt;Contact/&gt;</span>
+                <div class="link-hover-effect"></div>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="glitch-wrapper">
+                <h1 class="glitch" data-text="Giant Dev">Giant Dev</h1>
+            </div>
+            <p class="subtitle">Full Stack Developer</p>
+            <div class="tech-stack">
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-js"></i>
+                <i class="fab fa-react"></i>
+                <i class="fab fa-node"></i>
+            </div>
+        </header>
+
+        <nav class="nav-buttons">
+            <button class="nav-btn">
+                <span class="btn-content">
+                    <i class="fas fa-user"></i>
+                    Sobre Mim
+                </span>
+            </button>
+            <button class="nav-btn">
+                <span class="btn-content">
+                    <i class="fas fa-code"></i>
+                    Projetos
+                </span>
+            </button>
+            <button class="nav-btn">
+                <span class="btn-content">
+                    <i class="fas fa-envelope"></i>
+                    Contato
+                </span>
+            </button>
+        </nav>
+
+        <section id="about" class="about">
+            <h2>< Sobre Mim /></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Desenvolvedor apaixonado por criar soluções inovadoras e interfaces intuitivas. Com experiência em desenvolvimento web full-stack, busco constantemente aprender novas tecnologias e aprimorar minhas habilidades.</p>
+                    <div class="skills">
+                        <h3>Habilidades</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>< Projetos /></h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Projeto 1</h3>
+                        <p>Descrição do projeto com detalhes sobre as tecnologias utilizadas e desafios superados.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Projeto 2</h3>
+                        <p>Outro projeto incrível com foco em performance e experiência do usuário.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Express</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>< Contato /></h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:seu.email@exemplo.com">seu.email@exemplo.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/seu-usuario" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Seu Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Sua Mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-content">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="cyber-grid"></div>
+</body>
+</html>
